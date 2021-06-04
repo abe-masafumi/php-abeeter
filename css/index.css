@@ -1,0 +1,49 @@
+
+.rogin_form {
+  /* background:gray; */
+  margin: auto;
+}
+.container {
+  width: 400px;
+margin: auto;
+}
+
+label {
+  display: inline-block;
+  width: 80px;
+}
+
+.women_form,
+.men_form,
+.sex_form,
+.password_form,
+.email_form,
+.user_name_form,
+.password_form,
+.email_form {
+  display: flex;
+}
+
+input {
+  width: 200px;
+}
+input[type="radio"] {
+  width: auto;
+}
+
+dt {
+  background: gray;
+}
+
+.btn {
+  display: inline-block;
+  /* border-style: none; */
+  width: 200px;
+  text-align: center;
+  margin: auto;
+
+}
+
+
+
+

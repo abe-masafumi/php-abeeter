@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // exit('ok');
 
   $abeet = $_POST['abeet'];
-  var_dump($abeet);
+  // var_dump($abeet);
 
   // exit('ok');
 
@@ -117,8 +117,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit('sqlError:' . $error[2]);
   } else {
     // 登録ページへ移動
-    // header('Location:todo_input.php');
-    echo '投稿できました！';
+    header('Location:abeet.php');
+    // echo '投稿できました！';
   }
 }//postされたらの終わり
 
@@ -137,20 +137,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+  <div> <a href="logout.php">ログアウト</a> </div>
   <form action="" method="post">
     <fieldset>
       <legend>DB連携型todoリスト（入力画面）</legend>
       <!-- <a href="">一覧画面</a> -->
       <div>
-        <!-- $sql = "INSERT INTO abeeter_table(id, user_name, abeet, sex, password, email, post_time) VALUES(NULL, $user_name, :abeet, $sex, $password, $email, sysdate())"; -->
+
         abeet: <input type="text" name="abeet">
-        <!-- <input type="hidden" name="user_name" value="">
-        <input type="hidden" name="sex" value="">
-        <input type="hidden" name="password" value="">
-        <input type="hidden" name="email" value=""> -->
-        <!-- <input type="hidden" name="post_time" value=""> -->
-        <!-- <input type="hidden" name="update_time" value="">
-        <input type="hidden" name="deleted" value=""> -->
+ 
       </div>
       <div>
         <button>submit</button>

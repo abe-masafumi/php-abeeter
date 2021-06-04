@@ -10,19 +10,19 @@ session_start();
 
 // var_dump($_COOKIE["PHPSESSID"]);
 // var_dump($_COOKIE);
-var_dump(session_id());
+// var_dump(session_id());
 
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 // ログイン済みの処理
 if (isset($_SESSION['EMAIL'])) {
   echo 'ようこそ' . h($_SESSION['EMAIL']) . "さん<br>";
+  // sleep(3);
+  header('Location: abeet.php');
   exit;
 } else {
-  echo '初めまして';
+  echo '';
 }
-
-
 ?>
 
 
@@ -33,49 +33,54 @@ if (isset($_SESSION['EMAIL'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>abeck</title>
-
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <!-- <form action="user.php" method="post">
-    <div>
-      <h1>ログイン</h1>
-      <p>my name<input type="text" name="name"></p>
-      <p>email<input type="email" name="email"></p>
-      <input type="submit" value="送信">
+    <div class="container">
+      <div class="rogin_form">
+        <h2>ようこそ、ログインしてください。</h2>
+        <form  action="login.php" method="post" class="box_1">
+          <dl>
+            <div class="email_form">
+              <dt><label for="email">email</label></dt>
+              <dd><input type="email" name="email"></dd>
+            </div>
+            <div class="password_form">
+              <dt><label for="password">password</label></dt>
+              <dd><input type="password" name="password"></dd>
+            </div>
+            <button type="submit" class="btn">Sign In!</button>
+          </dl>
+        </form>
+      </div>
+      
+      <h1>初めての方はこちら</h1>
+      <form action="signUp.php" method="post">
+        <dl class="signup_form">
+          <div class="user_name_form">
+            <dt><label for="user_name">name</label></dt>
+            <dd><input type="text" name="user_name"></dd>
+          </div>
+          <div class="email_form">
+            <dt><label for="email">email</label></dt>
+            <dd><input type="email" name="email"></dd>
+          </div>
+          <div class="men_form">
+            <dt><label for="sex">性別</label></dt>
+            <dd><input type="radio" name="sex" value="1">男性</dd>
+          </div>
+            <div class="women_form">
+              <dt><label for="sex"></label></dt>
+              <dd><input type="radio" name="sex" value="0">女性</dd>
+            </div>
+          <div class="password_form">
+            <dt><label for="password">password</label></dt>
+            <dd><input type="password" name="password"></dd>
+          </div>
+          <button type="submit" class="btn">Sign Up!</button>
+        </dl>
+        <p>※パスワードは半角英数字をそれぞれ１文字以上含んだ、８文字以上で設定してください。</p>
+      </form>
     </div>
-  </form> -->
-
-    <h1>ようこそ、ログインしてください。</h1>
-    <form  action="login.php" method="post">
-      <label for="email">email</label>
-      <input type="email" name="email">
-      <label for="password">password</label>
-      <input type="password" name="password">
-      <button type="submit">Sign In!</button>
-    </form>
-    
-    <h1>初めての方はこちら</h1>
-    <form action="signUp.php" method="post">
-
-      <label for="">name</label>
-      <input type="text" name="user_name">
-
-      <label for="email">email</label>
-      <input type="email" name="email">
-
-      <label for="sex">性別 男性</label>
-      <input type="radio" name="sex" value="1">
-      <label for="sex">女性</label>
-      <input type="radio" name="sex" value="0">
-
-      <label for="password">password</label>
-      <input type="password" name="password">
-
-      <button type="submit">Sign Up!</button>
-      <p>※パスワードは半角英数字をそれぞれ１文字以上含んだ、８文字以上で設定してください。</p>
-    </form>
-
-
-
 </body>
 </html>

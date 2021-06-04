@@ -33,6 +33,8 @@ if (password_verify($_POST['password'], $row['password'])) {
   // var_dump($row['email']);
   // var_dump($_SESSION['EMAIL']);
   echo 'ログインしました';
+  // sleep(2);
+  header('Location:abeet.php');
 } else {
   echo 'メールアドレス又はパスワードが間違っています。';
   return false;

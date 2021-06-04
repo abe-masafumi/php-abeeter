@@ -64,8 +64,9 @@ try {
   $stmt->bindValue(':sex', $sex, PDO::PARAM_INT);
   $stmt->bindValue(':password', $password, PDO::PARAM_STR);
   $status = $stmt->execute(); // SQLを実行
-  var_dump($status);
+  // var_dump($status);
   echo '登録完了';
+  // header('Location:index.php');
 } catch (\Exception $e) {
   echo '登録済み もしくはサーバーに書き込めなかった！';
 }
