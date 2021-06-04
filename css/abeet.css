@@ -1,0 +1,26 @@
+.block {
+  border: 1px solid black;
+  /* background: skyblue; */
+  display: flex;
+}
+
+.my_thumbnail {
+  background: pink;
+  width: 100px;
+  height: 100px;
+}
+
+.my_abeet {
+  /* background: gray; */
+  width: 300px;
+}
+
+.my_name {
+  background: skyblue;
+}
+
+.my_text {
+  background: wheat;
+}
+
+

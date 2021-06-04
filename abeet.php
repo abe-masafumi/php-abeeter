@@ -33,7 +33,14 @@ try {
 $output = '';
 
 foreach ($all_rows as $rows) {
-  $output .= "<div><div>{$rows['email']}</div><div>{$rows['user_name']}</div><div>{$rows['abeet']}</div>";
+  $output .= "<div class='block'>
+  <div class='my_thumbnail'>{$rows['email']}</div>
+  <div class='my_abeet'>
+    <div class='my_name'>{$rows['user_name']}</div>
+    <div class='my_text'>{$rows['abeet']}</div>
+  </div>
+  </div>"
+  ;
 }
 
 
@@ -134,6 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DB連携型todoリスト（入力画面）</title>
+  <link rel="stylesheet" href="css/abeet.css">
 </head>
 
 <body>

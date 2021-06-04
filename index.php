@@ -11,14 +11,14 @@ session_start();
 // var_dump($_COOKIE["PHPSESSID"]);
 // var_dump($_COOKIE);
 // var_dump(session_id());
-
 // var_dump($_SESSION);
-
 // ログイン済みの処理
 if (isset($_SESSION['EMAIL'])) {
   echo 'ようこそ' . h($_SESSION['EMAIL']) . "さん<br>";
   // sleep(3);
-  header('Location: abeet.php');
+
+  header('Location: youkoso.html');
+  // header('Location: abeet.php');
   exit;
 } else {
   echo '';
@@ -38,6 +38,7 @@ if (isset($_SESSION['EMAIL'])) {
 <body>
     <div class="container">
       <div class="rogin_form">
+        <h1>abeeter</h1>
         <h2>ようこそ、ログインしてください。</h2>
         <form  action="login.php" method="post" class="box_1">
           <dl>
@@ -54,7 +55,7 @@ if (isset($_SESSION['EMAIL'])) {
         </form>
       </div>
       
-      <h1>初めての方はこちら</h1>
+      <h2>初めての方はこちら</h2>
       <form action="signUp.php" method="post">
         <dl class="signup_form">
           <div class="user_name_form">

@@ -28,7 +28,7 @@ if (strlen($_POST['user_name']) > 10) {
 } else {
   $user_name = $_POST['user_name'];
 }
-var_dump($user_name);
+// var_dump($user_name);
 
 
 // メールアドレスが正しいか微妙にチェック
@@ -36,13 +36,13 @@ if (!$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
   echo '入力された値が不正っす';
   return false;
 }
-var_dump($email);
+// var_dump($email);
 
 
 $sex = $_POST['sex'];
 
 
-var_dump($sex);
+// var_dump($sex);
 
 //パスワードの正規表現
 if (preg_match('/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i', $_POST['password'])) {
@@ -51,9 +51,7 @@ if (preg_match('/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i', $_POST['password']
   echo 'パスワードは半角英数字をそれぞれ1文字以上含んだ8文字以上で設定してくださいっす。';
   return false;
 }
-var_dump($password);
-
-
+// var_dump($password);
 
 //登録処理
 try {
@@ -66,7 +64,7 @@ try {
   $status = $stmt->execute(); // SQLを実行
   // var_dump($status);
   echo '登録完了';
-  // header('Location:index.php');
+  header('Location:touroku.html');
 } catch (\Exception $e) {
   echo '登録済み もしくはサーバーに書き込めなかった！';
 }
