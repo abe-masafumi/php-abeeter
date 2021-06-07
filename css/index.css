@@ -1,11 +1,14 @@
-
+body {
+  background: rgb(17, 82, 105);
+  color: white;
+}
 .rogin_form {
   /* background:gray; */
   margin: auto;
 }
 .container {
   width: 400px;
-margin: auto;
+  margin: auto;
 }
 
 label {
@@ -31,19 +34,33 @@ input[type="radio"] {
   width: auto;
 }
 
-dt {
+/* dt {
   background: gray;
-}
+} */
 
 .btn {
   display: inline-block;
-  /* border-style: none; */
-  width: 200px;
+  border-style: none;
+  /* width: 200px; */
   text-align: center;
-  margin: auto;
-
+  cursor: pointer;
+  /* text-align: center; */
+  margin: 10px 15px 0 15px;
+  height: 30px;
+  width: 300px;
+  font-size: 20px;
 }
 
+img {
+  width: 350px;
+}
+.none {
+  display: none;
+  pointer-events: none;
+}
+span {
+  color: aquamarine;
+}
 
 
 

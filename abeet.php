@@ -21,7 +21,7 @@ require_once('./config.php');
 try {
   $pdo = new PDO(DSN, DB_USER, DB_PASS);
   // データベースから$_SESSION['EMAIL']を探して行ごと取得
-  $stmt = $pdo->prepare('SELECT * FROM abeeter_table');
+  $stmt = $pdo->prepare('SELECT * FROM abeeter_table WHERE deleted = 0');
   $stmt->execute();
   $all_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -38,9 +38,14 @@ foreach ($all_rows as $rows) {
   <div class='my_abeet'>
     <div class='my_name'>{$rows['user_name']}</div>
     <div class='my_text'>{$rows['abeet']}</div>
+    <div>
+    <a href='abeet_edit.php?id={$rows["id"]}'>edit</a>
+    <a href='abeet_delete.php?id={$rows["id"]}'>delete</a>
+
   </div>
-  </div>"
-  ;
+  </div>
+
+  </div>";
 }
 
 
@@ -127,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Location:abeet.php');
     // echo '投稿できました！';
   }
-}//postされたらの終わり
+} //postされたらの終わり
 
 
 
@@ -153,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div>
 
         abeet: <input type="text" name="abeet">
- 
+
       </div>
       <div>
         <button>submit</button>
@@ -164,10 +169,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div>
     <!-- 小コンテナ -->
     <div>
-    <?= $output; ?>
+      <?= $output; ?>
     </div>
   </div>
-              <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
+  <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
+
 
 </body>
 
