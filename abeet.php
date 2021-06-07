@@ -9,7 +9,7 @@ if (isset($_COOKIE['PHPSESSID'])) {
 } else {
   $myId = '';
 }
-// var_dump($myId);
+var_dump($myId);
 // exit("0k");
 
 
@@ -38,15 +38,16 @@ foreach ($all_rows as $rows) {
   <div class='my_abeet'>
     <div class='my_name'>{$rows['user_name']}</div>
     <div class='my_text'>{$rows['abeet']}</div>
-    <div>
+    <div class='my_abeet' id='my_abeet'>
     <a href='abeet_edit.php?id={$rows["id"]}'>edit</a>
     <a href='abeet_delete.php?id={$rows["id"]}'>delete</a>
-
   </div>
   </div>
 
   </div>";
 }
+
+
 
 
 
@@ -173,7 +174,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </div>
   <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
+<script>
+const my_abeet = document.getElementById('my_abeet');
 
+</script>
 
 </body>
 

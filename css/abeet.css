@@ -1,26 +1,32 @@
+body {
+  background: #5fb784;
+  color: white;
+}
 .block {
   border: 1px solid black;
   /* background: skyblue; */
   display: flex;
+
 }
 
 .my_thumbnail {
-  background: pink;
+  /* background: pink; */
   width: 100px;
   height: 100px;
+  overflow: hidden;
 }
 
 .my_abeet {
   /* background: gray; */
-  width: 300px;
+  width: 400px;
 }
 
-.my_name {
+/* .my_name {
   background: skyblue;
-}
+} */
 
-.my_text {
+/* .my_text {
   background: wheat;
-}
+} */
 
 
