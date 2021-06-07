@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
   <div> <a href="logout.php">ログアウト</a> </div>
-  <form action="" method="post">
+  <form action="" method="post" autocomplete="off">
     <fieldset>
       <legend>DB連携型todoリスト（入力画面）</legend>
       <!-- <a href="">一覧画面</a> -->

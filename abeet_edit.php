@@ -40,7 +40,7 @@ if ($status == false) {
 </head>
 
 <body>
-  <form action="abeet_Update.php" method="post">
+  <form action="abeet_Update.php" method="post" autocomplete="off">
     <fieldset>
       <legend>DB連携型todoリスト（編集画面）</legend>
       <!-- <a href="">一覧画面</a> -->
