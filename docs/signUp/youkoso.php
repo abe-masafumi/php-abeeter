@@ -1,3 +1,12 @@
+<?php 
+session_start();
+// var_dump($_SESSION['EMAIL']);
+// exit();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +23,7 @@
 
     .x {
       margin: auto;
-      width: 500px;
+      width: 800px;
     }
 
     img,
@@ -47,15 +56,15 @@
 
 <body>
   <div class="x">
-    <img src="./img/abetter_rogo.png" alt="表示されませんでした" class="x">
-    <p>ようこそ</p>
+    <img src="../img/abetter_rogo.png" alt="表示されませんでした" class="x">
+    <p>ようこそ<?=  $_SESSION['EMAIL']  ?>さん</p>
   </div>
 
 </body>
 
 <script>
   setTimeout(function () {
-    window.location.href = 'abeet.php';
+    window.location.href = 'https://localhost/myfile_lab05/php_abetter/docs/abeet.php';
   }, 4000);
 
 </script>

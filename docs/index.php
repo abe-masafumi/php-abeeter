@@ -1,8 +1,6 @@
 <?php  
 
-function h($str){
-  return htmlspecialchars($str, ENT_QUOTES, 'utf-8');
-}
+require_once('functions.php');
 
 // サーバー側のキーを作成
 // (この時点で_COOKIEとsession_idが発行される、されただけ)
@@ -14,11 +12,7 @@ session_start();
 // var_dump($_SESSION);
 // ログイン済みの処理
 if (isset($_SESSION['EMAIL'])) {
-  echo 'ようこそ' . h($_SESSION['EMAIL']) . "さん<br>";
-  // sleep(3);
-
-  header('Location: youkoso.html');
-  // header('Location: abeet.php');
+  header('Location: //localhost/myfile_lab05/php_abetter/docs/signUp/youkoso.php');
   exit;
 } else {
   echo '';
@@ -38,9 +32,9 @@ if (isset($_SESSION['EMAIL'])) {
 <body>
     <div class="container">
       <div class="rogin_form">
-        <img src="./img/abetter.png" alt="表示できません" class="illule">
+        <img src="./img/abetter_rogo.png" alt="表示できません" class="illule">
         <h2>ようこそ、ログインしてください。</h2>
-        <form  action="login.php" method="post" class="box_1" autocomplete="off">
+        <form  action="./signUp/login.php" method="post" class="box_1" autocomplete="off">
           <dl>
             <div class="email_form">
               <dt><label for="email">email</label></dt>
@@ -58,7 +52,7 @@ if (isset($_SESSION['EMAIL'])) {
       <h2>初めての方は<span id="open" onclick="form2.classList.contains('none')? form2.classList.remove('none') : form2.classList.add('none');">こちら</span></h2>
       <!-- autocomplete="off"予測変換無効 -->
       <div class="none" id="form2">
-        <form action="signUp.php" method="post" autocomplete="off">
+        <form action="./signUp/signUp.php" method="post" autocomplete="off">
           <dl class="signup_form">
             <div class="user_name_form">
               <dt><label for="user_name">name</label></dt>

@@ -1,6 +1,7 @@
 <?php 
-require_once('./config.php');
+require_once __DIR__ . '../../config.php';
 session_start();
+// exit('ok');
 
 if($_POST['password'] == "mainitiganitiyoubi") {
   header('Location:root.php');
@@ -38,7 +39,7 @@ if (password_verify($_POST['password'], $row['password'])) {
   // var_dump($_SESSION['EMAIL']);
   echo 'ログインしました';
   // sleep(2);
-  header('Location:youkoso.html');
+  header('Location: https://localhost/myfile_lab05/php_abetter/docs/abeet.php');
 } else {
   echo 'メールアドレス又はパスワードが間違っています。';
   return false;

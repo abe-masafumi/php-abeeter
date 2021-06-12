@@ -11,15 +11,16 @@ if (
 // exit('ok');
 
 
-require_once('config.php');
+require_once __DIR__ . '../../config.php';
 //データベースへ接続
 // DB接続
-try {
-  $pdo = new PDO(DSN, DB_USER, DB_PASS);
-} catch (PDOException $e) {
-  echo json_encode(["db error" => "{$e->getMessage()}"]);
-  exit(); // 「dbError:...」が表示されたらdb接続でエラーが発生していることがわかる
-}
+// try {
+//   $pdo = new PDO(DSN, DB_USER, DB_PASS);
+// } catch (PDOException $e) {
+//   echo json_encode(["db error" => "{$e->getMessage()}"]);
+//   exit(); // 「dbError:...」が表示されたらdb接続でエラーが発生していることがわかる
+// }
+// exit('ok');
 
 
 if (strlen($_POST['user_name']) > 10) {

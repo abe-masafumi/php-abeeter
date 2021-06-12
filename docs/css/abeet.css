@@ -30,23 +30,47 @@ margin-right: 10px;
 /* ーーーーーーーヘッダー終了ーーーーーーー */
 /* ーーーーーーーメインーーーーーーー */
 
+.small_container {
+  margin-bottom: 70px;
+}
+
 .block {
   border: 1px solid black;
-  /* background: skyblue; */
+}
+
+.my_info {
   display: flex;
 }
 
-.my_thumbnail {
-  /* background: pink; */
-  width: 100px;
-  height: 100px;
+#my_email {
+  width: 50px;
+  height: 50px;
+  background: orange;
+  border-radius: 50%;
   overflow: hidden;
+  margin-right: 50px;
 }
 
-.my_abeet {
-  /* background: gray; */
-  width: 400px;
+
+
+.my_thmbnail {
+  width: 100%;
+  height: 150px;
+  /* object-fit: fill; */
+
 }
+
+.my_thmbnail img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+
+
+
+
+
 /* ーーーーーーーメイン終了ーーーーーーー */
 
 /* ーーーーーーfooterーーーーーーーーー */
@@ -67,6 +91,8 @@ footer .menu_box ul {
   justify-content: space-between;
 }
 
-/* footer .menu_box ul li {
-  
-} */
+footer .menu_box ul li div {
+  background: green;
+  width: 50px;
+  height: 50px;
+}

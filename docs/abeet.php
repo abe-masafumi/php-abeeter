@@ -34,16 +34,18 @@ $output = '';
 
 foreach ($all_rows as $rows) {
   $output .= "<div class='block'>
-  <div class='my_thumbnail'>{$rows['email']}</div>
-  <div class='my_abeet'>
-    <div class='my_name'>{$rows['user_name']}</div>
+  <div class='my_info'>
+  <div id='my_email'>{$rows['email']}</div>
+  <div class=''>{$rows['user_name']}</div>
+  </div>
+  <div class='my_thmbnail'>
+  <img src='./img/環境問題.jpeg' alt='画像がうまく表示されません'>
+  </div>
     <div class='my_text'>{$rows['abeet']}</div>
     <div class='my_abeet' id='my_abeet'>
     <a href='abeet_edit.php?id={$rows["id"]}'>edit</a>
     <a href='abeet_delete.php?id={$rows["id"]}'>delete</a>
   </div>
-  </div>
-
   </div>";
 }
 
@@ -165,13 +167,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </header>
   <main>
-  <div> <a href="logout.php">ログアウト</a> </div>
+  <div> <a href="./signUp/logout.php">ログアウト</a> </div>
   <form action="" method="post" autocomplete="off">
     <fieldset>
       <legend>DB連携型todoリスト（入力画面）</legend>
       <!-- <a href="">一覧画面</a> -->
       <div>
-
         abeet: <input type="text" name="abeet">
 
       </div>
@@ -183,7 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <!-- 大コンテナ -->
   <div>
     <!-- 小コンテナ -->
-    <div>
+    <div class="small_container">
       <?= $output; ?>
     </div>
   </div>
@@ -192,16 +193,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <footer>
     <div class="menu_box">
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li><div></div></li>
+          <li id="account"><div>アカウント</div></li>
         </ul>
     </div>
   </footer>
   <script>
     const my_abeet = document.getElementById('my_abeet');
+    const account = document.getElementById('account');
+    account.addEventListener('click', () => {
+      window.location.href = 'my_account.php'; 
+    });
   </script>
 
 </body>
