@@ -9,7 +9,7 @@ if (isset($_COOKIE['PHPSESSID'])) {
 } else {
   $myId = '';
 }
-var_dump($myId);
+// var_dump($myId);
 // exit("0k");
 
 
@@ -151,6 +151,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+  <header>
+    <div>
+      <h3>投稿一覧</h3>
+    </div>
+    <div class="story">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+    </div>
+  </header>
+  <main>
   <div> <a href="logout.php">ログアウト</a> </div>
   <form action="" method="post" autocomplete="off">
     <fieldset>
@@ -173,11 +187,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <?= $output; ?>
     </div>
   </div>
-  <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
-<script>
-const my_abeet = document.getElementById('my_abeet');
-
-</script>
+  </main>
+  <!-- メニュー一覧 -->
+  <footer>
+    <div class="menu_box">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+    </div>
+  </footer>
+  <script>
+    const my_abeet = document.getElementById('my_abeet');
+  </script>
 
 </body>
 

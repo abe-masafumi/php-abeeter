@@ -1,12 +1,39 @@
+/* ーーーーヘッダー ーーーーーー*/
 body {
   background: #5fb784;
   color: white;
+  /* position: relative; */
 }
+
+header div {
+  background: white;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  border-bottom: 2px solid gray;
+  color: black;
+}
+header .story {
+  height: 60px;
+}
+
+header .story ul {
+list-style: none;
+display: flex;
+padding: 0px;
+}
+
+header .story ul li {
+margin-right: 10px;
+}
+
+/* ーーーーーーーヘッダー終了ーーーーーーー */
+/* ーーーーーーーメインーーーーーーー */
+
 .block {
   border: 1px solid black;
   /* background: skyblue; */
   display: flex;
-
 }
 
 .my_thumbnail {
@@ -20,13 +47,26 @@ body {
   /* background: gray; */
   width: 400px;
 }
+/* ーーーーーーーメイン終了ーーーーーーー */
 
-/* .my_name {
-  background: skyblue;
+/* ーーーーーーfooterーーーーーーーーー */
+footer {
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  background: gray;
+}
+
+footer .menu_box ul {
+  height: 50px;
+  margin: 0px 30px;
+  display: flex;
+  list-style: none;
+  padding: 0px;
+  justify-content: space-between;
+}
+
+/* footer .menu_box ul li {
+  
 } */
-
-/* .my_text {
-  background: wheat;
-} */
-
-
