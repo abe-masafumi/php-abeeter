@@ -42,7 +42,7 @@ margin-right: 10px;
   display: flex;
 }
 
-#my_email {
+.my_info img {
   width: 50px;
   height: 50px;
   background: orange;
@@ -50,6 +50,15 @@ margin-right: 10px;
   overflow: hidden;
   margin-right: 50px;
 }
+
+/* #my_email {
+  width: 50px;
+  height: 50px;
+  background: orange;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 50px;
+} */
 
 
 

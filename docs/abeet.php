@@ -1,6 +1,8 @@
 <?php
 // これがないとセッションのデータを取れない
 session_start();
+$id = $_SESSION['ID'];
+
 // ↑ここでログインで登録した$_SESSION['EMAIL']が取得できる
 // var_dump($_SESSION);
 
@@ -17,25 +19,24 @@ require_once('./config.php');
 
 // exit('ok');
 
-// DB接続
-try {
-  $pdo = new PDO(DSN, DB_USER, DB_PASS);
-  // データベースから$_SESSION['EMAIL']を探して行ごと取得
-  $stmt = $pdo->prepare('SELECT * FROM abeeter_table WHERE deleted = 0');
-  $stmt->execute();
-  $all_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-  echo json_encode(["db error" => "{$e->getMessage()}"]);
-  exit();
-}
-// var_dump($all_rows);
+
+// $stmt = $pdo->prepare('SELECT * FROM signUp_table WHERE id = :id');
+// $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+// $stmt->execute();
+// $line = $stmt->fetch(PDO::FETCH_ASSOC);
+// $my_img = $line['u_img'];
+
+$stmt = $pdo->prepare('SELECT * FROM abeeter_table WHERE deleted = 0');
+$stmt->execute();
+$all_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $output = '';
-
 foreach ($all_rows as $rows) {
+// var_dump($rows);
+
   $output .= "<div class='block'>
   <div class='my_info'>
-  <div id='my_email'>{$rows['email']}</div>
+  <img id='my_email' src='./img/{$rows['u_img_name']}' >
   <div class=''>{$rows['user_name']}</div>
   </div>
   <div class='my_thmbnail'>
@@ -55,7 +56,6 @@ foreach ($all_rows as $rows) {
 
 // (追加)でpostされたかどうかのチェック
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
   if ( // 入力チェック(未入力の場合は弾く，commentのみ任意)
     !isset($_POST['abeet']) || $_POST['abeet'] == ''
   ) {
@@ -91,8 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // var_dump($row);
 
 
-
-
   // exit('ok');
 
   // ↑のデータを下に↓に当てはめるところからーーーーーーーーーーーーーーーーーーーーーーー
@@ -101,28 +99,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sex = $row['sex'];
   $password = $row['password'];
   $email = $row['email'];
+  $u_img_name = $row['u_img_name'];/////怪しい
+
+
 
 
   // var_dump($user_name);
   // var_dump($sex);
   // var_dump($password);
   // var_dump($email);
-
+  // var_dump($u_img_name);
+  // exit();
 
 
   // exit('ok2');
 
   // SQL作成&実行
-  // $sql = "INSERT INTO abeeter_table(id, user_name, abeet, sex, password, email, post_time) VALUES(NULL, $user_name, :abeet, $sex, $password, 'hoge@ggg@.con', sysdate())";
-  $sql = "INSERT INTO abeeter_table(id, user_name, abeet, sex, password, email, post_time) VALUES(NULL, :user_name, :abeet, $sex, :password, :email, sysdate())";
-
-
+  $sql = "INSERT INTO abeeter_table(id, user_name, abeet, sex, password, email, post_time, u_img_name) VALUES(NULL, :user_name, :abeet, $sex, :password, :email, sysdate(), :u_img_name)";
   $stmt = $pdo->prepare($sql);
   // 変数をバインド変数(:todo)に格納!!
   $stmt->bindValue(':user_name', $user_name, PDO::PARAM_STR);
   $stmt->bindValue(':abeet', $abeet, PDO::PARAM_STR);
   $stmt->bindValue(':password', $password, PDO::PARAM_STR);
   $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+  $stmt->bindValue(':u_img_name', $u_img_name, PDO::PARAM_STR);
   $status = $stmt->execute(); // SQLを実行
 
 
@@ -174,6 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <!-- <a href="">一覧画面</a> -->
       <div>
         abeet: <input type="text" name="abeet">
+        u_img: <input type="hidden" name="u_img" value="">
 
       </div>
       <div>

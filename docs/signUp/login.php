@@ -1,6 +1,7 @@
 <?php 
 require_once __DIR__ . '../../config.php';
 session_start();
+
 // exit('ok');
 
 if($_POST['password'] == "mainitiganitiyoubi") {
@@ -25,6 +26,7 @@ try {
   echo $e->getMessage() . PHP_EOL;
 }
   // var_dump($row);
+  // exit();
 
 //emailがDB内に存在しているか確認
 if (!isset($row['email'])) {
@@ -35,11 +37,12 @@ if (!isset($row['email'])) {
 if (password_verify($_POST['password'], $row['password'])) {
   session_regenerate_id(true); //session_idを新しく生成し、置き換える
   $_SESSION['EMAIL'] = $row['email'];
+  $_SESSION['ID'] = $row['id'];
   // var_dump($row['email']);
   // var_dump($_SESSION['EMAIL']);
-  echo 'ログインしました';
+  // echo 'ログインしました';
   // sleep(2);
-  header('Location: https://localhost/myfile_lab05/php_abetter/docs/abeet.php');
+  header('Location: //localhost/myfile_lab05/php_abetter/docs/signUp/youkoso.php');
 } else {
   echo 'メールアドレス又はパスワードが間違っています。';
   return false;

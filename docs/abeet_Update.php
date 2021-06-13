@@ -12,16 +12,11 @@ $abeet = $_POST['abeet'];
 $id = $_POST['id'];
 
 require_once('./config.php');
-try {
-  $pdo = new PDO(DSN, DB_USER, DB_PASS);
+
   $stmt = $pdo->prepare('UPDATE abeeter_table SET abeet=:abeet WHERE id=:id');
   $stmt->bindValue(':abeet', $abeet, PDO::PARAM_STR);
   $stmt->bindValue(':id', $id, PDO::PARAM_INT);
   $status = $stmt->execute();
-} catch (PDOException $e) {
-  echo json_encode(["db error" => "{$e->getMessage()}"]);
-  exit();
-}
 
 if ($status==false) {
   $error = $stmt->errorInfo();//errorInfo()後で調べる
