@@ -1,6 +1,6 @@
-<img src="hoem.png">
+<img src="home.png">
 
-<img src="hoem2.png">
+<img src="home2.png">
 
 - チャット機能を再現
 > 2021/7/1
