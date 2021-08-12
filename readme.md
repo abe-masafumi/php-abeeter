@@ -1,3 +1,10 @@
+<img src="hoem.png">
+
+<img src="hoem2.png">
+
+- チャット機能を再現
+> 2021/7/1
+
 # 実装したこと
 - sessionとcookiesを使ったログイン機能
 

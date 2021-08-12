@@ -13,8 +13,6 @@ if (isset($_COOKIE['PHPSESSID'])) {
   $myId = '';
 }
 
-
-
 require_once('../config/link.php');
 require_once('../config/functions.php');
 require_once('../config/config.php');
